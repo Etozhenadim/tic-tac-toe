@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import { calculateWinner } from '../helpers';
 import { Board } from "./Board";
 
@@ -9,7 +9,7 @@ export function Game(props){
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(history[stepNumber]);
 
-  const handleClick = (i) => {
+  const handleClick = useCallback((i) => {
     const timeInHistory = history.slice(0, stepNumber + 1);
     const current = timeInHistory[stepNumber];
     const squares = [...current];
@@ -20,7 +20,7 @@ export function Game(props){
     setHistory([...timeInHistory, squares]);
     setStepNumber(timeInHistory.length);        
     setXIsNext(!xIsNext);
-  }
+  }, [history, stepNumber, winner, xIsNext]);
 
   const jumpTo=(step)=> {
     setStepNumber(step)
