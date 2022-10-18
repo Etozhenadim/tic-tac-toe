@@ -1,5 +1,5 @@
 import React from "react";
-import { Square } from "./Square";
+import { Square } from "./square";
 
 export function Board(props) {
   const renderSquare = (i) => {

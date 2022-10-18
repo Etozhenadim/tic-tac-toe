@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from "react";
 import { calculateWinner } from '../helpers';
-import { Board } from "./Board";
+import { Board } from "./board";
 
 
 export function Game(props){
